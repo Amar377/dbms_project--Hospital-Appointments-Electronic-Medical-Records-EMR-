@@ -1,8 +1,3 @@
--- 10. Reports Generation
--- Instructions: Run these queries in your SQL client (Workbench/pgAdmin).
--- Then, click "Export" or "Save Result As" to save them as CSV files 
--- inside your '10_reports/' folder.
-
 USE hospital_db;
 
 -- REPORT 1: Monthly Revenue Summary
@@ -29,4 +24,5 @@ FROM Providers p
 JOIN Specialties s ON p.specialty_id = s.specialty_id
 LEFT JOIN Appointments a ON p.provider_id = a.provider_id
 GROUP BY p.provider_id, p.last_name, s.name
+
 ORDER BY Total_Appointments DESC;
