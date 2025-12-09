@@ -12,4 +12,5 @@
 * **Patient-Appointment (1:M):** A patient can have many appointments; an appointment belongs to one patient.
 * **Provider-Appointment (1:M):** A provider sees many patients.
 * **Appointment-Encounter (1:1):** One appointment results in exactly one clinical encounter record.
+
 * **Encounter-Prescription (1:M):** One encounter can result in multiple drugs being prescribed.
