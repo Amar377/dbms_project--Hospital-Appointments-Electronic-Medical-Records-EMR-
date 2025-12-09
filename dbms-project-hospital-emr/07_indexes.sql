@@ -11,5 +11,3 @@ CREATE INDEX idx_patient_name ON Patients(last_name, first_name);
 -- Index for finding encounters by patient history
 CREATE INDEX idx_encounter_date ON Encounters(encounter_date);
 
--- EXPLAIN ANALYZE Example (Note: Run this in Workbench/pgAdmin to see output)
-EXPLAIN SELECT * FROM Appointments WHERE provider_id = 1 AND start_time > '2023-01-01';
