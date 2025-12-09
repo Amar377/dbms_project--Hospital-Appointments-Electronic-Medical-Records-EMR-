@@ -1,0 +1,31 @@
+-- Master Script: run_all.sql
+-- Usage: SOURCE run_all.sql; (in MySQL Client)
+-- Purpose: Rebuilds the entire project database from scratch.
+
+-- 1. Database Schema (DDL)
+-- Drops existing DB and creates tables
+SOURCE 03_create_tables.sql;
+
+-- 2. Data Loading (DML)
+-- Inserts sample patients, doctors, and appointments
+SOURCE 05_seed_data.sql;
+
+-- 3. Operational Queries (CRUD)
+-- Executes the core 12 requirement queries
+SOURCE 06_crud_and_queries.sql;
+
+-- 4. Performance Tuning
+-- Adds indexes to optimize lookup speeds
+SOURCE 07_indexes.sql;
+
+-- 5. Integrity & Security
+-- Applies stricter constraints and creates user roles
+SOURCE 09_constraints.sql;
+SOURCE 09_roles_privileges.sql;
+
+-- 6. Reporting
+-- Generates financial and operational reports
+SOURCE 10_reports.sql;
+
+-- End of Script
+SELECT "Database Rebuilt Successfully" AS Status;

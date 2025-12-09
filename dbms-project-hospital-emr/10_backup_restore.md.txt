@@ -1,0 +1,10 @@
+# 10 Backup & Recovery
+
+## Backup Command (mysqldump)
+Run this in terminal/command prompt (not inside MySQL):
+`mysqldump -u root -p hospital_db > hospital_db_backup.sql`
+
+## Recovery Simulation
+1. `DROP TABLE Prescriptions;` (Accidental Data Loss)
+2. `mysql -u root -p hospital_db < hospital_db_backup.sql` (Restore)
+3. `SELECT COUNT(*) FROM Prescriptions;` (Verify data is back)

@@ -1,0 +1,15 @@
+- 7. Indexing and Optimization
+
+USE hospital_db;
+
+-- Index for searching appointments by doctor and date (High traffic query)
+CREATE INDEX idx_provider_time ON Appointments(provider_id, start_time);
+
+-- Index for searching patients by name (Reception desk lookup)
+CREATE INDEX idx_patient_name ON Patients(last_name, first_name);
+
+-- Index for finding encounters by patient history
+CREATE INDEX idx_encounter_date ON Encounters(encounter_date);
+
+-- EXPLAIN ANALYZE Example (Note: Run this in Workbench/pgAdmin to see output)
+EXPLAIN SELECT * FROM Appointments WHERE provider_id = 1 AND start_time > '2023-01-01';

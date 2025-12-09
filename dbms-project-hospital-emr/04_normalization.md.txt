@@ -1,0 +1,16 @@
+# 04 Normalization Process
+
+## Functional Dependencies
+1. `patient_id` -> `first_name`, `last_name`, `dob`, `insurance_id`
+2. `provider_id` -> `name`, `specialty_id`
+3. `specialty_id` -> `specialty_name`
+
+## Normal Forms
+* **1NF:** All attributes are atomic. We separated `first_name` and `last_name` instead of one `full_name` field. No repeating groups (e.g., we did not put multiple medicines in one cell in the Encounters table; we created a separate Prescriptions table).
+* **2NF:** No partial dependencies. All non-key attributes depend on the full primary key. Since most tables have single-column PKs, this is satisfied.
+* **3NF:** No transitive dependencies.
+    * *Initial Design Issue:* If we stored `specialty_name` inside the `Providers` table, it would be a transitive dependency (`provider_id` -> `specialty_name` via `specialty_id`).
+    * *Solution:* We normalized this by creating a separate `Specialties` table and linking via ID.
+
+## Denormalization Note
+We intentionally kept `billed_amount` in the `Encounters` table for simpler reporting, even though it could technically be calculated from a separate billing table. This reduces join complexity for financial reports.

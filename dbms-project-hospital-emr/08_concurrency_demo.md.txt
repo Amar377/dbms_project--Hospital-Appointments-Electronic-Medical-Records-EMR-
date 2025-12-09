@@ -1,0 +1,8 @@
+# 08 Concurrency Demo
+
+## Scenario
+Two schedulers try to book Dr. Smith at 9:00 AM simultaneously.
+1. **User A** starts transaction, checks slot (Empty).
+2. **User B** starts transaction, checks slot (Empty).
+3. **User A** inserts record.
+4. **User B** tries to insert record -> **Database Lock Wait / Error** because of overlap logic (if constraints set) or timestamp ordering.

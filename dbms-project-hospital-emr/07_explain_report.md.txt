@@ -1,0 +1,7 @@
+# 07 Explain Report
+
+## Query Optimized: Schedule Lookup
+`SELECT * FROM Appointments WHERE provider_id = 1 AND start_time > '2023-01-01';`
+
+* **Before Index:** Full Table Scan (Slow if millions of rows).
+* **After Index:** Index Range Scan (Instant).
